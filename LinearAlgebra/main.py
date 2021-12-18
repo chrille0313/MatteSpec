@@ -124,9 +124,7 @@ def fractify(matrix):
 
 
 def determinant(matrix):
-    return matrix[0][0] if len(matrix) == 1 else sum(
-        [(-1) ** r * matrix[r][0] * determinant([[matrix[i][j] for j in range(len(matrix)) if j != 0] for i in range(len(matrix)) if i != r]) for
-         r in range(len(matrix))])
+    return matrix[0][0] if len(matrix) == 1 else sum([(-1) ** r * matrix[r][0] * determinant([[matrix[i][j] for j in range(len(matrix)) if j != 0] for i in range(len(matrix)) if i != r]) for r in range(len(matrix))])
 
 
 """m = [

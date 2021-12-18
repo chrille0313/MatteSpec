@@ -88,7 +88,7 @@ class Fraction:
 
     def __neg__(self):
         frac = Fraction(1)
-        frac.numerator, frac.denominator = -self.numerator, frac.denominator
+        frac.numerator, frac.denominator = -self.numerator, self.denominator
         return frac
 
     def __str__(self):
