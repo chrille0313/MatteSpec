@@ -148,10 +148,10 @@ def gauss_eliminate(matrix):
 
         for j in range(len(matrix)):
             if i != j:
-                factor = -matrix[j][i]
+                factor = matrix[j][i]
 
                 for k in range(len(matrix) + 1):
-                    matrix[j][k] += matrix[i][k] * factor
+                    matrix[j][k] -= matrix[i][k] * factor
 
     return matrix
 
@@ -162,7 +162,7 @@ m = [
     [1, -2, 1, 8],
 ]
 
-[print(f"[ {' '.join(str(col) for col in row)} ]") for row in gauss_eliminate(m)]
+# [print(f"{' '.join(str(col) for col in row)}") for row in gauss_eliminate(m)]
 
-# n1, n2 = Fraction(5), Fraction(5)
-# print(2 - n1)
+n1, n2 = Fraction(5), Fraction(5)
+print(2 - (n2/2))
