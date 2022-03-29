@@ -1,5 +1,5 @@
 class Fraction:
-    def __init__(self, n):
+    def __init__(self, n, den=1):
         if isinstance(n, float):
             string = str(n)
             decimalCount = len(string[string.find("."):]) - 1
@@ -8,7 +8,7 @@ class Fraction:
             self.reduce(self)
         else:
             self.numerator = n
-            self.denominator = 1
+            self.denominator = den
 
     @staticmethod
     def gcd(a, b):
@@ -66,8 +66,9 @@ class Fraction:
         otherF = Fraction(other) if not isinstance(other, Fraction) else other
 
         frac = Fraction(1)
-        frac.denominator, frac.numerator = Fraction.lcm(self.denominator,
-                                                        otherF.denominator), self.numerator * frac.denominator // self.denominator + otherF.numerator * frac.denominator // otherF.denominator
+        lcm = Fraction.lcm(self.denominator, otherF.denominator)
+        frac.denominator = lcm
+        frac.numerator = self.numerator * lcm // self.denominator + otherF.numerator * lcm // otherF.denominator
 
         return self.reduce(frac)
 
@@ -92,9 +93,28 @@ class Fraction:
         return frac
 
     def __str__(self):
-        if self.numerator == 0:
-            return "0"
-        elif self.denominator == 1:
+        if self.denominator == 1 or self.numerator == 0:
             return f"{self.numerator}"
         else:
             return f"{self.numerator}/{self.denominator}"
+
+
+"""
+fraction1 = Fraction(0.25)
+fraction2 = Fraction(0.2)
+
+print(fraction1, fraction2)
+print(-fraction1, -fraction2)
+
+print(fraction1 - 3)
+print(3 - fraction1)
+
+print(fraction1 + 2)
+print(2 + fraction1)
+
+print(fraction1 * fraction2)
+print(fraction2 * fraction1)
+
+print(fraction1 / fraction2)
+print(fraction2 / fraction1)
+"""
