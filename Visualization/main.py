@@ -48,7 +48,7 @@ def mandelbrot(x, y, width, height, zoom=1.0, maxIterations=100):
 
     z = np.zeros(complexNumbers.shape, dtype=np.complex128)
 
-    for i in range(maxIterations):
+    for i in range(maxIterations + 1):
         z = z ** 2 + complexNumbers
         z[np.abs(z) > 2] = i
 
