@@ -223,9 +223,9 @@ class Camera:
 				self.transform.position += -self.transform.up * self.movementSpeed
 
 			if isKeyDown[pygame.K_q]:
-				self.transform.rotation += Vector3D(0, 0, -1) * self.rotationSpeed
-			if isKeyDown[pygame.K_e]:
 				self.transform.rotation += Vector3D(0, 0, 1) * self.rotationSpeed
+			if isKeyDown[pygame.K_e]:
+				self.transform.rotation += Vector3D(0, 0, -1) * self.rotationSpeed
 
 			window.fill((0, 0, 0))  # Clear screen
 
@@ -241,7 +241,7 @@ class Camera:
 			pygame.display.update()
 
 
-cam = Camera(Transform(Vector3D(0, 0, 2), Vector3D(0, 0, 0), Vector3D(1, 1, 1)), movementSpeed=0.001)
+cam = Camera(Transform(Vector3D(0, 0, 2), Vector3D(0, 0, 0), Vector3D(1, 1, 1)), movementSpeed=0.0015)
 cube = Cube(Transform(Vector3D(0, 0, 0), Vector3D(0, 0, 0), Vector3D(1, 1, 1)))
 
 cam.render((800, 800))
