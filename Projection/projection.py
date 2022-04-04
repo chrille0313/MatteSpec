@@ -55,9 +55,11 @@ class Transform:
 		self.__calculate_matrices()
 
 	def __calculate_local_vectors(self):
-		self.forward = self.rotate(Vector3D.forward, self.rotation).normalized
+		self.forward = self.rotate(-Vector3D.forward, self.rotation).normalized
 		self.up = self.rotate(Vector3D.up, self.rotation).normalized
 		self.right = self.forward.cross(self.up).normalized
+
+		print(self.forward, self.up, self.right)
 
 	def __calculate_matrices(self):
 		rotation = self.__get_rotation_matrix(self.rotation)
@@ -95,7 +97,7 @@ class Transform:
 		                   [-sin(angles.z), cos(angles.z), 0],
 		                   [0, 0, 1]])
 
-		rotationMatrix = np.dot(rotationZ, np.dot(rotationY, rotationX))
+		rotationMatrix = np.dot(rotationX, np.dot(rotationY, rotationZ))
 
 		return Vector3D(*np.dot(vector[:3], rotationMatrix))
 
