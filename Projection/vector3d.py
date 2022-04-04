@@ -37,7 +37,7 @@ class Vector3D(object):
         :return: Union[int, float]
 
         >>> Vector3D(10, 20, 30).x
-        10
+        10.0
 
         >>> Vector3D(10.0, 20.0, 30.0).x
         10.0
@@ -57,7 +57,7 @@ class Vector3D(object):
         :return: Union[int, float]
 
         >>> Vector3D(10, 20, 30).y
-        20
+        20.0
 
         >>> Vector3D(10.0, 20.0, 30.0).y
         20.0
@@ -77,7 +77,7 @@ class Vector3D(object):
         :return: Union[int, float]
 
         >>> Vector3D(10, 20, 30).z
-        30
+        30.0
 
         >>> Vector3D(10.0, 20.0, 30.0).z
         30.0
@@ -97,7 +97,7 @@ class Vector3D(object):
         :return: Union[int, float]
 
         >>> Vector3D(10, 20, 30).w
-        1
+        1.0
 
         >>> Vector3D(10.0, 20.0, 30.0).w
         1.0
@@ -153,7 +153,7 @@ class Vector3D(object):
         :return: Vector3D
 
         >>> -Vector3D(1, 2, 3)
-        Vector3D(-1, -2, -3, 1)
+        Vector3D(-1.0, -2.0, -3.0, 1.0)
         """
 
         vector = Vector3D(*numpy.negative(self._data))
@@ -168,10 +168,10 @@ class Vector3D(object):
         :return: Vector3D
 
         >>> Vector3D(1, 2, 3) + Vector3D(2, 4, 6)
-        Vector3D(3, 6, 9, 1)
+        Vector3D(3.0, 6.0, 9.0, 1.0)
 
         >>> Vector3D(1, 2, 3) + 5
-        Vector3D(6, 7, 8, 1)
+        Vector3D(6.0, 7.0, 8.0, 1.0)
 
         >>> Vector3D(1.0, 2.0, 3.0) + 5.0
         Vector3D(6.0, 7.0, 8.0, 1.0)
@@ -189,10 +189,10 @@ class Vector3D(object):
         :return: Vector3D
 
         >>> Vector3D(2, 4, 6) - Vector3D(1, 2, 3)
-        Vector3D(1, 2, 3, 1)
+        Vector3D(1.0, 2.0, 3.0, 1.0)
 
         >>> Vector3D(6, 7, 8) - 5
-        Vector3D(1, 2, 3, 1)
+        Vector3D(1.0, 2.0, 3.0, 1.0)
 
         >>> Vector3D(6.0, 7.0, 8.0) - 5.0
         Vector3D(1.0, 2.0, 3.0, 1.0)
@@ -210,10 +210,10 @@ class Vector3D(object):
         :return: Vector3D
 
         >>> Vector3D(1, 2, 3) * Vector3D(2, 4, 6)
-        Vector3D(2, 8, 18, 1)
+        Vector3D(2.0, 8.0, 18.0, 1.0)
 
         >>> Vector3D(1, 2, 3) * 2
-        Vector3D(2, 4, 6, 1)
+        Vector3D(2.0, 4.0, 6.0, 1.0)
 
         >>> Vector3D(1.0, 2.0, 3.0) * 2.0
         Vector3D(2.0, 4.0, 6.0, 1.0)
@@ -268,7 +268,7 @@ class Vector3D(object):
         :return: Vector3D
 
         >>> Vector3D(0, 0, 1).cross(Vector3D(1, 0, 0))
-        Vector3D(0, 1, 0, 1)
+        Vector3D(0.0, 1.0, 0.0, 1.0)
         """
 
         return type(self)(*np.cross(self._data[:3], other._data[:3]))
@@ -290,8 +290,8 @@ Vector3D.up = Vector3D(0, 1, 0)
 Vector3D.down = Vector3D(0, -1, 0)
 Vector3D.left = Vector3D(-1, 0, 0)
 Vector3D.right = Vector3D(1, 0, 0)
-Vector3D.forward = Vector3D(0, 0, -1)
-Vector3D.back = Vector3D(0, 0, 1)
+Vector3D.forward = Vector3D(0, 0, 1)
+Vector3D.back = Vector3D(0, 0, -1)
 
 
 def dot(a, b):
