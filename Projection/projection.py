@@ -81,7 +81,7 @@ class Transform:
 		                                 [-self.position.x, -self.position.y, -self.position.z, 1]])
 
 		self.worldToLocalMatrix = np.dot(self.rotationMatrix, self.transformMatrix)
-		self.localToWorldMatrix = np.dot(np.dot(self.rotationMatrix, scale), translation)
+		self.localToWorldMatrix = np.dot(np.dot(rotation, scale), translation)
 
 	@staticmethod
 	def rotate(vector: Vector3D, angles: Vector3D):
