@@ -10,10 +10,8 @@ def primes(n):
 	i = 2
 	while i * i <= n:
 		if isPrime[i]:
-			j = 2 * i
-			while j <= n:
+			for j in range(i * i, n + 1, i):
 				isPrime[j] = False
-				j += i
 
 		i += 1
 
